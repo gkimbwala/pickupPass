@@ -1,0 +1,29 @@
+<%= form_for @pickup_adult, :html => {:mulitpart => true} do |f| %>
+  <% if @pickup_adult.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pickup_adult.errors.count, "error") %> prohibited this pickup_adult from being saved:</h2>
+
+      <ul>
+      <% @pickup_adult.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :picture %><br>
+    <%= f.file_field :picture %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
