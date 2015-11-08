@@ -1,34 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pickup_adult.name %>
-</p>
+<div class="row">
+  <div class="col-md-9">
 
-<p>
-  <strong>Description:</strong>
-  <%= @pickup_adult.description %>
-</p>
+  </div>
 
-<p>
-  <strong>Picture:</strong>
-
-
- <h3>Comments</h3>
- <% if @comments %>
-  	<% @comments.each do |comment| %>
-  		<div>
-  			<strong><% comment.user_name %></strong>
-  			<br/>
-  			<p><% comment.body %></p>
-  			<p><%= link_to 'Delete', comment_path(comment), method: :delete, data: {confirm: 'Are you sure?'} %></p>
-        <p><%= link_to 'New Comments', new_comment_path(comment), method: :get %></p>
-  		</div>
-    <% end %>
-  <% else %>
-      <p>This means the comments are not working!</p>
- <% end %>
-</p>
-
-<%= link_to 'Edit', edit_pickup_adult_path(@pickup_adult) %> |
-<%= link_to 'Back', pickup_adults_path %>
+  <div class="col-md-3">
+    <p><b>Name: </b><%= @pickup_adult.name %></p>
+    <p><b>Description: </b><%= @pickup_adult.description %></p>
+    <p>
+      <%= link_to 'Edit', edit_pickup_adult_path(@pickup_adult) %> |
+      <%= link_to 'Destroy', @pickup_adult, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <%= link_to 'Back', pickup_adult_path %>
+    </p>
+  </div>
+</div>
